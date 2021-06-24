@@ -1,7 +1,9 @@
 # Muvi
 Muvi adalah aplikasi untuk menampilkan film baik movie maupun tv series. Data didapatkan dari public api  <strong>The Movie Data Base</strong>. Tujuan dari pembuatan aplikasi ini selain untuk submission Dicoding Jetpack Pro, yaitu menerapkan android architecture components pada sebuah aplikasi.
 
-## Screenshots
+Screenshots
+-----------
+<img src="screenshots/muvi.gif" alt="screenshots">
 
 ## Features
 
