@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Muvi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="text_action">Find your favorite movie</string>
+    <string name="tab_title_1">Movies</string>
+    <string name="tab_title_2">TV Shows</string>
+
+    <string name="label_overview">Overview</string>
+    <string name="label_genre">Genre</string>
+    <string name="label_director">Director</string>
+    <string name="label_cast">Cast</string>
+    <string name="label_see_all">see all</string>
+    <string name="label_cast_name">Gemma Chan</string>
+    <string name="label_role">Role</string>
+    <string name="app_title_mu">Mu</string>
+    <string name="app_title_vi">vi</string>
+    <string name="label_status">Status</string>
+    <string name="label_favorite">Your Favorite</string>
+    <string name="label_message">You have no favorite film</string>
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_poster"
+        android:layout_width="160dp"
+        android:layout_height="241dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/light_grey"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        style="@style/TextView.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/light_grey"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_poster"
+        app:layout_constraintTop_toTopOf="@+id/img_poster"
+        tools:text="Title Movie" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_year"
+        style="@style/TextView.GreyFade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/light_grey"
+        app:layout_constraintStart_toStartOf="@+id/rt_rating"
+        app:layout_constraintTop_toBottomOf="@+id/rt_rating"
+        tools:text="year" />
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rt_rating"
+        style="?attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/light_grey"
+        android:isIndicator="false"
+        android:progressTint="@color/orange_solid"
+        android:secondaryProgressTint="@android:color/transparent"
+        android:stepSize="0.2"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:rating="4.4" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_rating"
+        style="@style/TextView.Bold.OrangeSolid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@color/light_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/rt_rating"
+        app:layout_constraintStart_toEndOf="@+id/rt_rating"
+        app:layout_constraintTop_toTopOf="@+id/rt_rating"
+        tools:text="8.2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/label_overview"
+        style="@style/TextView.Bold"
+        android:layout_marginTop="16dp"
+        android:background="@color/light_grey"
+        android:text="@string/label_overview"
+        app:layout_constraintStart_toStartOf="@+id/img_poster"
+        app:layout_constraintTop_toBottomOf="@+id/img_poster" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_overview"
+        style="@style/TextView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/label_overview"
+        app:layout_constraintTop_toBottomOf="@+id/label_overview"
+        tools:text="@string/label_overview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

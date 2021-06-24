@@ -1,0 +1,2 @@
+rootProject.name = "Muvi"
+include ':app'

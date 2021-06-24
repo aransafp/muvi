@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_poster"
+            android:layout_width="160dp"
+            android:layout_height="241dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/grey_fade" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            style="@style/TextView.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_poster"
+            app:layout_constraintTop_toTopOf="@+id/img_poster"
+            tools:text="Title Movie" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_year"
+            style="@style/TextView.GreyFade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/rt_rating"
+            app:layout_constraintTop_toBottomOf="@+id/rt_rating"
+            tools:text="year" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_unfavorite_grey_24px"
+            app:layout_constraintStart_toStartOf="@+id/tv_year"
+            app:layout_constraintTop_toBottomOf="@+id/tv_year" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rt_rating"
+            style="?attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="true"
+            android:progressTint="@color/orange_solid"
+            android:secondaryProgressTint="@android:color/transparent"
+            android:stepSize="0.2"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:rating="4.4" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rating"
+            style="@style/TextView.Bold.OrangeSolid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rt_rating"
+            app:layout_constraintStart_toEndOf="@+id/rt_rating"
+            app:layout_constraintTop_toTopOf="@+id/rt_rating"
+            tools:text="8.2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label_overview"
+            style="@style/TextView.Bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_overview"
+            app:layout_constraintStart_toStartOf="@+id/img_poster"
+            app:layout_constraintTop_toBottomOf="@+id/img_poster" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_overview"
+            style="@style/TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:justificationMode="inter_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/label_overview"
+            app:layout_constraintTop_toBottomOf="@+id/label_overview"
+            tools:text="@string/label_overview" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label_genre"
+            style="@style/TextView.Bold"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_genre"
+            app:layout_constraintStart_toStartOf="@+id/tv_overview"
+            app:layout_constraintTop_toBottomOf="@+id/tv_overview" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_genres"
+            style="@style/TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/label_genre"
+            app:layout_constraintTop_toBottomOf="@+id/label_genre"
+            tools:text="@string/label_genre" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

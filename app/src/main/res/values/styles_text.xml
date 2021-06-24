@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextView.Medium">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextView.SemiBold">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+    </style>
+
+    <style name="TextView.Bold">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="TextView.GreyFade">
+        <item name="android:textColor">@color/grey_fade</item>
+    </style>
+
+    <style name="TextView.Medium.GreyFade">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/grey_fade</item>
+    </style>
+
+    <style name="TextView.SemiBold.GreyFade">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textColor">@color/grey_fade</item>
+    </style>
+
+    <style name="TextView.Bold.GreyFade">
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/grey_fade</item>
+    </style>
+
+    <style name="TextView.Bold.Blue">
+        <item name="android:textColor">@color/blue_solid</item>
+    </style>
+
+    <style name="TextView.Bold.OrangeSolid">
+        <item name="android:textColor">@color/orange_solid</item>
+    </style>
+
+</resources>
