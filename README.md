@@ -12,6 +12,15 @@ Aplikasi ini terdiri dari 3 halaman utama, halaman home, halaman detail, serta h
 - Halaman detail, menampilkan detail movie/tv series. User dapat menambahkan ke favorit di halaman ini.
 - Halaman favorit, menampilkan daftar movies/tv series favorit pilihan user.
 
+## Implementation
+- Android architecture component
+- MVVM (Model-View-ViewModel) pattern
+- Retrofit
+- Room
+- Paging 2
+- Unit Testing
+- Instrumentation Testing
+
 ## What's next ?
 
 - Implement RxJava
