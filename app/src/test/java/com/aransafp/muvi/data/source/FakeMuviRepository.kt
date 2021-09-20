@@ -185,7 +185,7 @@ class FakeMuviRepository(
     override fun checkFilmIsFavorite(id: Int): LiveData<Boolean> =
         localDataSource.checkMovieFavorite(id)
 
-    override suspend fun inserFavoriteFilm(id: Int) {
+    override suspend fun insertFavoriteFilm(id: Int) {
         localDataSource.addFavoriteFilm(id)
     }
 

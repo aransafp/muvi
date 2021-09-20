@@ -7,6 +7,8 @@ import com.aransafp.muvi.data.source.remote.response.DetailResponse
 import com.aransafp.muvi.data.source.remote.response.PopularMovieResponse
 import com.aransafp.muvi.data.source.remote.response.PopularTvResponse
 import com.aransafp.muvi.utils.IdlingResource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class RemoteDataSource {
 
@@ -25,8 +27,12 @@ class RemoteDataSource {
     suspend fun getListMovie(): LiveData<ApiResponse<PopularMovieResponse>> {
         IdlingResource.increment()
         val result = MutableLiveData<ApiResponse<PopularMovieResponse>>()
-        val data = ApiConfig.getApiService().getPopularMovies()
-        result.postValue(ApiResponse.success(data))
+
+        withContext(Dispatchers.IO) {
+            val data = ApiConfig.getApiService().getPopularMovies()
+            result.postValue(ApiResponse.success(data))
+        }
+
         IdlingResource.decerement()
         return result
     }
@@ -34,8 +40,12 @@ class RemoteDataSource {
     suspend fun getListTvShow(): LiveData<ApiResponse<PopularTvResponse>> {
         IdlingResource.increment()
         val result = MutableLiveData<ApiResponse<PopularTvResponse>>()
-        val data = ApiConfig.getApiService().getPopularTvShows()
-        result.postValue(ApiResponse.success(data))
+
+        withContext(Dispatchers.IO) {
+            val data = ApiConfig.getApiService().getPopularTvShows()
+            result.postValue(ApiResponse.success(data))
+        }
+
         IdlingResource.decerement()
         return result
     }
@@ -43,8 +53,12 @@ class RemoteDataSource {
     suspend fun getDetailsMovie(id: Int): LiveData<ApiResponse<DetailResponse>> {
         IdlingResource.increment()
         val result = MutableLiveData<ApiResponse<DetailResponse>>()
-        val data = ApiConfig.getApiService().getDetailsMovie(id)
-        result.postValue(ApiResponse.success(data))
+
+        withContext(Dispatchers.IO) {
+            val data = ApiConfig.getApiService().getDetailsMovie(id)
+            result.postValue(ApiResponse.success(data))
+        }
+
         IdlingResource.decerement()
         return result
     }
@@ -52,8 +66,12 @@ class RemoteDataSource {
     suspend fun getDetailsTvShow(id: Int): LiveData<ApiResponse<DetailResponse>> {
         IdlingResource.increment()
         val result = MutableLiveData<ApiResponse<DetailResponse>>()
-        val data = ApiConfig.getApiService().getDetailsTvShow(id)
-        result.postValue(ApiResponse.success(data))
+
+        withContext(Dispatchers.IO) {
+            val data = ApiConfig.getApiService().getDetailsTvShow(id)
+            result.postValue(ApiResponse.success(data))
+        }
+
         IdlingResource.decerement()
         return result
     }

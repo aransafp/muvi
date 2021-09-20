@@ -40,7 +40,7 @@ class MoviesFragment : Fragment() {
 
         val moviesAdapter = PagedFilmAdapter()
 
-        viewModel.getMovis().observe(viewLifecycleOwner, { movies ->
+        viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
             when (movies.status) {
                 Status.LOADING -> showLoading()
                 Status.SUCCESS -> {

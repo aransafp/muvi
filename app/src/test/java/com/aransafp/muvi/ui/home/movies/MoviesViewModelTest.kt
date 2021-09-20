@@ -56,12 +56,12 @@ class MoviesViewModelTest {
             films.value = dummyMovies
 
             `when`(muviRepository.getListMovie()).thenReturn(films)
-            val filmEntities = viewModel.getMovis().value?.data
+            val filmEntities = viewModel.getMovies().value?.data
             verify(muviRepository).getListMovie()
             assertNotNull(filmEntities)
             assertEquals(5, filmEntities?.size)
 
-            viewModel.getMovis().observeForever(observer)
+            viewModel.getMovies().observeForever(observer)
             verify(observer).onChanged(dummyMovies)
 
         }

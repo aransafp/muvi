@@ -113,9 +113,9 @@ class DetailViewModelTest {
     fun addToFavorite() {
         testCoroutineRule.runBlockingTest {
             val id = 337404
-            `when`(muviRepository.inserFavoriteFilm(id)).thenReturn(Unit)
+            `when`(muviRepository.insertFavoriteFilm(id)).thenReturn(Unit)
             viewModel.addToFavorite(dummyMovieEntity)
-            verify(muviRepository).inserFavoriteFilm(id)
+            verify(muviRepository).insertFavoriteFilm(id)
         }
     }
 

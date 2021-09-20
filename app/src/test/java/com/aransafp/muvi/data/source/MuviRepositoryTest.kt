@@ -147,7 +147,7 @@ class MuviRepositoryTest {
         testCoroutineRule.runBlockingTest {
             val id = 337404
             `when`(local.addFavoriteFilm(id)).thenReturn(Unit)
-            muviRepository.inserFavoriteFilm(id)
+            muviRepository.insertFavoriteFilm(id)
 
             verify(local).addFavoriteFilm(id)
         }

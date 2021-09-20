@@ -22,7 +22,7 @@ interface MuviDataSource {
 
     fun checkFilmIsFavorite(id: Int): LiveData<Boolean>
 
-    suspend fun inserFavoriteFilm(id: Int)
+    suspend fun insertFavoriteFilm(id: Int)
 
     suspend fun deleteFavoriteFilm(id: Int)
 

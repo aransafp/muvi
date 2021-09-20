@@ -17,7 +17,7 @@ class DetailViewModel(private val muviRepository: MuviRepository) : ViewModel() 
 
     fun addToFavorite(film: FilmEntity) {
         viewModelScope.launch {
-            muviRepository.inserFavoriteFilm(film.id)
+            muviRepository.insertFavoriteFilm(film.id)
         }
     }
 

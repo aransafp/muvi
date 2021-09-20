@@ -18,6 +18,7 @@ import com.aransafp.muvi.vo.Resource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.IllegalArgumentException
 
 class MuviRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
@@ -61,17 +62,25 @@ class MuviRepository private constructor(
             }
 
             override fun saveCallResult(data: PopularMovieResponse) {
-                CoroutineScope(Dispatchers.Main).launch {
-                    for (response in data.results) {
-                        val movie = FilmEntity(
-                            id = response.id,
-                            title = response.title,
-                            posterPath = response.posterPath,
-                            releaseDate = response.releaseDate,
-                            voteAverage = response.voteAverage,
-                            filmType = TMDBConst.TYPE_MOVIE,
-                        )
-                        launch(Dispatchers.IO) { localDataSource.insertFilm(movie) }
+
+                CoroutineScope(Dispatchers.Default).launch {
+
+                    try {
+                        for (response in data.results) {
+                            val movie = FilmEntity(
+                                id = response.id,
+                                title = response.title,
+                                posterPath = response.posterPath,
+                                releaseDate = response.releaseDate,
+                                voteAverage = response.voteAverage,
+                                filmType = TMDBConst.TYPE_MOVIE,
+                            )
+
+                            localDataSource.insertFilm(movie)
+
+                        }
+                    } catch (e: Exception) {
+
                     }
                 }
             }
@@ -98,18 +107,24 @@ class MuviRepository private constructor(
             }
 
             override fun saveCallResult(data: PopularTvResponse) {
-                CoroutineScope(Dispatchers.Main).launch {
-                    for (response in data.results) {
-                        val tvShow = FilmEntity(
-                            id = response.id,
-                            title = response.name,
-                            posterPath = response.posterPath,
-                            releaseDate = response.firstAirDate,
-                            voteAverage = response.voteAverage,
-                            filmType = TMDBConst.TYPE_TV_SHOW,
-                        )
-                        launch(Dispatchers.IO) { localDataSource.insertFilm(tvShow) }
+                CoroutineScope(Dispatchers.Default).launch {
+
+                    try {
+                        for (response in data.results) {
+                            val tvShow = FilmEntity(
+                                id = response.id,
+                                title = response.name,
+                                posterPath = response.posterPath,
+                                releaseDate = response.firstAirDate,
+                                voteAverage = response.voteAverage,
+                                filmType = TMDBConst.TYPE_TV_SHOW,
+                            )
+                            localDataSource.insertFilm(tvShow)
+                        }
+                    } catch (e : Exception) {
+                        throw IllegalArgumentException(e)
                     }
+
                 }
             }
 
@@ -136,7 +151,7 @@ class MuviRepository private constructor(
                 val genreItems = data.genres.map { genreItem -> genreItem.name }
                 val genres = genreItems.joinToString(", ")
 
-                CoroutineScope(Dispatchers.Main).launch {
+                CoroutineScope(Dispatchers.Default).launch {
                     val detail = DetailEntity(
                         id = data.id,
                         title = data.title,
@@ -147,8 +162,7 @@ class MuviRepository private constructor(
                         genres = genres,
                         filmType = TMDBConst.TYPE_MOVIE
                     )
-                    launch(Dispatchers.IO) { localDataSource.insertDetailsFilm(detail) }
-
+                    localDataSource.insertDetailsFilm(detail)
                 }
             }
 
@@ -175,7 +189,7 @@ class MuviRepository private constructor(
                 val genreItems = data.genres.map { genreItem -> genreItem.name }
                 val genres = genreItems.joinToString(", ")
 
-                CoroutineScope(Dispatchers.Main).launch {
+                CoroutineScope(Dispatchers.Default).launch {
                     val detail = DetailEntity(
                         id = data.id,
                         title = data.title,
@@ -186,7 +200,7 @@ class MuviRepository private constructor(
                         genres = genres,
                         filmType = TMDBConst.TYPE_TV_SHOW
                     )
-                    launch(Dispatchers.IO) { localDataSource.insertDetailsFilm(detail) }
+                    localDataSource.insertDetailsFilm(detail)
                 }
             }
 
@@ -202,7 +216,7 @@ class MuviRepository private constructor(
     override fun checkFilmIsFavorite(id: Int): LiveData<Boolean> =
         localDataSource.checkMovieFavorite(id)
 
-    override suspend fun inserFavoriteFilm(id: Int) {
+    override suspend fun insertFavoriteFilm(id: Int) {
         localDataSource.addFavoriteFilm(id)
     }
 

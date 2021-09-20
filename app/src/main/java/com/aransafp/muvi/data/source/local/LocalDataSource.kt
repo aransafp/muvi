@@ -5,9 +5,6 @@ import androidx.paging.DataSource
 import com.aransafp.muvi.data.source.local.database.MuviDao
 import com.aransafp.muvi.data.source.local.entity.DetailEntity
 import com.aransafp.muvi.data.source.local.entity.FilmEntity
-import com.aransafp.muvi.utils.IdlingResource
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class LocalDataSource private constructor(private val muviDao: MuviDao) {
 
@@ -19,11 +16,11 @@ class LocalDataSource private constructor(private val muviDao: MuviDao) {
     }
 
     suspend fun insertFilm(film: FilmEntity) {
-        withContext(Dispatchers.IO) { muviDao.insertFilm(film) }
+        muviDao.insertFilm(film)
     }
 
     suspend fun insertDetailsFilm(detail: DetailEntity) {
-        withContext(Dispatchers.IO) { muviDao.insertDetail(detail) }
+        muviDao.insertDetail(detail)
     }
 
     fun getMovies(): DataSource.Factory<Int, FilmEntity> {
@@ -55,10 +52,10 @@ class LocalDataSource private constructor(private val muviDao: MuviDao) {
     }
 
     suspend fun addFavoriteFilm(id: Int) {
-        withContext(Dispatchers.IO) { muviDao.addFavorite(id) }
+        muviDao.addFavorite(id)
     }
 
     suspend fun deleteFavoriteFilm(id: Int) {
-        withContext(Dispatchers.IO) { muviDao.removeFavorite(id) }
+        muviDao.removeFavorite(id)
     }
 }
