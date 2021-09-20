@@ -2,7 +2,7 @@ package com.aransafp.muvi.data.source.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 
 @Entity(tableName = "films")
 data class FilmEntity(
@@ -17,7 +17,7 @@ data class FilmEntity(
 
     val voteAverage: Double? = null,
 
-    val filmType: String = Const.TYPE_MOVIE,
+    val filmType: String = TMDBConst.TYPE_MOVIE,
 
     val isFavorite: Boolean? = false
 

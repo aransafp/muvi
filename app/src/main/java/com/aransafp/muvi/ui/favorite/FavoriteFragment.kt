@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.aransafp.muvi.databinding.FragmentFavoriteBinding
 import com.aransafp.muvi.ui.adapter.PagedFilmAdapter
 import com.aransafp.muvi.ui.detail.DetailActivity
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 import com.aransafp.muvi.viewmodel.ViewModelFactory
 
 
@@ -44,7 +44,7 @@ class FavoriteFragment : Fragment() {
         favoriteAdapter = PagedFilmAdapter()
 
         val dataFilm =
-            if (type == Const.TYPE_MOVIE) viewModel.getListFavoriteMovies() else viewModel.getListFavoriteTvShows()
+            if (type == TMDBConst.TYPE_MOVIE) viewModel.getListFavoriteMovies() else viewModel.getListFavoriteTvShows()
 
         dataFilm.observe(viewLifecycleOwner, { films ->
             if (films.isEmpty()) {

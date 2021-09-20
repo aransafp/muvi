@@ -7,26 +7,26 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.aransafp.muvi.data.source.local.entity.DetailEntity
 import com.aransafp.muvi.data.source.local.entity.FilmEntity
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 
 @Dao
 interface MuviDao {
-    @Query("SELECT * FROM films WHERE filmType = '${Const.TYPE_MOVIE}'")
+    @Query("SELECT * FROM films WHERE filmType = '${TMDBConst.TYPE_MOVIE}'")
     fun getMovies(): DataSource.Factory<Int, FilmEntity>
 
-    @Query("select * from films where filmType = '${Const.TYPE_TV_SHOW}'")
+    @Query("select * from films where filmType = '${TMDBConst.TYPE_TV_SHOW}'")
     fun getTvShows(): DataSource.Factory<Int, FilmEntity>
 
-    @Query("select * from details where id = :movieId and filmType = '${Const.TYPE_MOVIE}'")
+    @Query("select * from details where id = :movieId and filmType = '${TMDBConst.TYPE_MOVIE}'")
     fun getDetailsMovie(movieId: Int): LiveData<DetailEntity>
 
-    @Query("select * from details where id = :tvShowId and filmType = '${Const.TYPE_TV_SHOW}'")
+    @Query("select * from details where id = :tvShowId and filmType = '${TMDBConst.TYPE_TV_SHOW}'")
     fun getDetailsTvShow(tvShowId: Int): LiveData<DetailEntity>
 
-    @Query("select * from films where filmType= '${Const.TYPE_MOVIE}' and isFavorite = 1")
+    @Query("select * from films where filmType= '${TMDBConst.TYPE_MOVIE}' and isFavorite = 1")
     fun getFavoriteMovies(): DataSource.Factory<Int, FilmEntity>
 
-    @Query("select * from films where filmType= '${Const.TYPE_TV_SHOW}' and isFavorite = 1")
+    @Query("select * from films where filmType= '${TMDBConst.TYPE_TV_SHOW}' and isFavorite = 1")
     fun getFavoriteTvShows(): DataSource.Factory<Int, FilmEntity>
 
     @Insert

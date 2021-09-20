@@ -13,7 +13,7 @@ import com.aransafp.muvi.data.source.remote.response.DetailResponse
 import com.aransafp.muvi.data.source.remote.response.PopularMovieResponse
 import com.aransafp.muvi.data.source.remote.response.PopularTvResponse
 import com.aransafp.muvi.utils.AppExecutors
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 import com.aransafp.muvi.vo.Resource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -52,7 +52,7 @@ class FakeMuviRepository(
                             posterPath = response.posterPath,
                             releaseDate = response.releaseDate,
                             voteAverage = response.voteAverage,
-                            filmType = Const.TYPE_MOVIE,
+                            filmType = TMDBConst.TYPE_MOVIE,
                         )
                         launch(Dispatchers.IO) { localDataSource.insertFilm(movie) }
                     }
@@ -89,7 +89,7 @@ class FakeMuviRepository(
                             posterPath = response.posterPath,
                             releaseDate = response.firstAirDate,
                             voteAverage = response.voteAverage,
-                            filmType = Const.TYPE_TV_SHOW,
+                            filmType = TMDBConst.TYPE_TV_SHOW,
                         )
                         launch(Dispatchers.IO) { localDataSource.insertFilm(tvShow) }
                     }
@@ -128,7 +128,7 @@ class FakeMuviRepository(
                         releaseDate = data.releaseDate,
                         voteAverage = data.voteAverage,
                         genres = genres,
-                        filmType = Const.TYPE_MOVIE
+                        filmType = TMDBConst.TYPE_MOVIE
                     )
                     launch(Dispatchers.IO) { localDataSource.insertDetailsFilm(detail) }
 
@@ -167,7 +167,7 @@ class FakeMuviRepository(
                         releaseDate = data.releaseDate,
                         voteAverage = data.voteAverage,
                         genres = genres,
-                        filmType = Const.TYPE_TV_SHOW
+                        filmType = TMDBConst.TYPE_TV_SHOW
                     )
                     launch(Dispatchers.IO) { localDataSource.insertDetailsFilm(detail) }
                 }

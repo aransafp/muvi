@@ -9,7 +9,7 @@ import com.aransafp.muvi.R
 import com.aransafp.muvi.data.source.local.entity.DetailEntity
 import com.aransafp.muvi.data.source.local.entity.FilmEntity
 import com.aransafp.muvi.databinding.ActivityDetailBinding
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 import com.aransafp.muvi.viewmodel.ViewModelFactory
 import com.aransafp.muvi.vo.Status
 import com.bumptech.glide.Glide
@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
         )[DetailViewModel::class.java]
 
         val detailData = when (filmType) {
-            Const.TYPE_MOVIE -> viewModel.getDetailsMovie(filmId)
+            TMDBConst.TYPE_MOVIE -> viewModel.getDetailsMovie(filmId)
             else -> viewModel.getDetailsTvShow(filmId)
         }
 
@@ -101,7 +101,7 @@ class DetailActivity : AppCompatActivity() {
                 }
 
                 Glide.with(this@DetailActivity)
-                    .load("${Const.BASE_IMAGE_URL}${film.posterPath}")
+                    .load("${TMDBConst.BASE_IMAGE_URL}${film.posterPath}")
                     .into(imgPoster)
 
             }

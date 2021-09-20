@@ -1,6 +1,6 @@
 package com.aransafp.muvi.api
 
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,11 +11,26 @@ class ApiConfig {
         fun getApiService(): ApiService {
             val loggingInterceptor =
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor { chain ->
+                    val original = chain.request()
+                    val originalHttpUrl = original.url
+
+                    val url = originalHttpUrl.newBuilder()
+                        .addQueryParameter("api_key", TMDBConst.API_KEY)
+                        .build()
+                    val requestBuilder = original.newBuilder()
+                        .url(url)
+
+                    val request = requestBuilder.build()
+                    chain.proceed(request)
+                }
                 .build()
+
             val retrofit = Retrofit.Builder()
-                .baseUrl(Const.BASE_URL)
+                .baseUrl(TMDBConst.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.aransafp.muvi.databinding.FragmentMoviesBinding
 import com.aransafp.muvi.ui.adapter.PagedFilmAdapter
 import com.aransafp.muvi.ui.detail.DetailActivity
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 import com.aransafp.muvi.viewmodel.ViewModelFactory
 import com.aransafp.muvi.vo.Status
 
@@ -60,7 +60,7 @@ class MoviesFragment : Fragment() {
         moviesAdapter.setOnItemClickCallback(object : PagedFilmAdapter.OnItemClickCallback {
             override fun onItem(filmId: Int?) {
                 val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.EXTRA_FILM_TYPE, Const.TYPE_MOVIE)
+                intent.putExtra(DetailActivity.EXTRA_FILM_TYPE, TMDBConst.TYPE_MOVIE)
                 intent.putExtra(DetailActivity.EXTRA_ID, filmId)
                 startActivity(intent)
             }

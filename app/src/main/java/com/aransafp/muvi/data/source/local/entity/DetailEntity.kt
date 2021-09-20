@@ -1,9 +1,8 @@
 package com.aransafp.muvi.data.source.local.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 
 @Entity(tableName = "details")
 data class DetailEntity(
@@ -22,5 +21,5 @@ data class DetailEntity(
 
     val genres: String? = null,
 
-    val filmType: String = Const.TYPE_MOVIE
+    val filmType: String = TMDBConst.TYPE_MOVIE
 )

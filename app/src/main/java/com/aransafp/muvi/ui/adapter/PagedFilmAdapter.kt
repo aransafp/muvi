@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.aransafp.muvi.data.source.local.entity.FilmEntity
 import com.aransafp.muvi.databinding.ItemsFilmBinding
-import com.aransafp.muvi.utils.Const
+import com.aransafp.muvi.utils.TMDBConst
 import com.bumptech.glide.Glide
 
 class PagedFilmAdapter : PagedListAdapter<FilmEntity, PagedFilmAdapter.ViewHolder>(DIFF_CALLBACK) {
@@ -65,7 +65,7 @@ class PagedFilmAdapter : PagedListAdapter<FilmEntity, PagedFilmAdapter.ViewHolde
                 }
 
                 Glide.with(itemView.context)
-                    .load("${Const.BASE_IMAGE_URL}${film.posterPath}")
+                    .load("${TMDBConst.BASE_IMAGE_URL}${film.posterPath}")
                     .into(imgPoster)
 
                 itemView.setOnClickListener { onItemClickCallback.onItem(film.id) }
