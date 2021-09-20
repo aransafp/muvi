@@ -18,7 +18,7 @@ import com.aransafp.muvi.vo.Resource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
+import kotlinx.coroutines.withContext
 
 class MuviRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
@@ -121,7 +121,7 @@ class MuviRepository private constructor(
                             )
                             localDataSource.insertFilm(tvShow)
                         }
-                    } catch (e : Exception) {
+                    } catch (e: Exception) {
                         throw IllegalArgumentException(e)
                     }
 
@@ -217,10 +217,14 @@ class MuviRepository private constructor(
         localDataSource.checkMovieFavorite(id)
 
     override suspend fun insertFavoriteFilm(id: Int) {
-        localDataSource.addFavoriteFilm(id)
+        withContext(Dispatchers.IO) {
+            localDataSource.addFavoriteFilm(id)
+        }
     }
 
     override suspend fun deleteFavoriteFilm(id: Int) {
-        localDataSource.deleteFavoriteFilm(id)
+        withContext(Dispatchers.IO) {
+            localDataSource.deleteFavoriteFilm(id)
+        }
     }
 }

@@ -51,11 +51,11 @@ class LocalDataSource private constructor(private val muviDao: MuviDao) {
         return muviDao.checkFilmIsFavorite(id)
     }
 
-    suspend fun addFavoriteFilm(id: Int) {
+    fun addFavoriteFilm(id: Int) {
         muviDao.addFavorite(id)
     }
 
-    suspend fun deleteFavoriteFilm(id: Int) {
+    fun deleteFavoriteFilm(id: Int) {
         muviDao.removeFavorite(id)
     }
 }
